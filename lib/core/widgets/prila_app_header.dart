@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:customer/core/theme/prila_theme.dart';
+import 'package:customer/core/widgets/prila_brand.dart';
 
 class PrilaAppHeader extends StatelessWidget {
   const PrilaAppHeader({
@@ -23,17 +24,7 @@ class PrilaAppHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            ShaderMask(
-              shaderCallback: (bounds) => colors.brandGradient.createShader(bounds),
-              child: Text(
-                'prila',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w800,
-                      color: Colors.white,
-                      letterSpacing: -0.5,
-                    ),
-              ),
-            ),
+            const PrilaWordmark(height: 28),
             const Spacer(),
             if (onBell != null)
               IconButton(

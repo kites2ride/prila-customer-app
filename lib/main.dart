@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:customer/core/firebase/crashlytics_bootstrap.dart';
 import 'package:customer/core/router/app_router.dart';
 import 'package:customer/core/theme/prila_theme.dart';
 import 'package:customer/core/theme/theme_mode_controller.dart';
@@ -7,7 +8,7 @@ import 'package:customer/l10n/app_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Firebase is optional until google-services files are provided for the shared project.
+  await bootstrapCrashlytics();
   runApp(const ProviderScope(child: PrilaCustomerApp()));
 }
 

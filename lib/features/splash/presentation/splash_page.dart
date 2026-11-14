@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:customer/core/config/bootstrap_provider.dart';
-import 'package:customer/core/theme/prila_theme.dart';
+import 'package:customer/core/theme/prila_colors.dart';
+import 'package:customer/core/widgets/prila_brand.dart';
 import 'package:customer/features/analytics/data/analytics_repository.dart';
 import 'package:customer/features/auth/data/auth_repository.dart';
 
@@ -32,16 +34,21 @@ class _SplashPageState extends ConsumerState<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.prilaColors;
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'prila',
-          style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                fontWeight: FontWeight.w700,
-                foreground: Paint()
-                  ..shader = colors.brandGradient.createShader(const Rect.fromLTWH(0, 0, 200, 60)),
-              ),
+    // Splash always uses the dark brand canvas (matches launcher icon and
+    // native launch screen), regardless of the app theme.
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Scaffold(
+        backgroundColor: PrilaColors.dark.background,
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const PrilaMark(size: 120),
+              const SizedBox(height: 28),
+              const PrilaLockup(width: 240),
+            ],
+          ),
         ),
       ),
     );
