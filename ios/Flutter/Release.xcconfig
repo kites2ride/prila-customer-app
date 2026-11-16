@@ -1,1 +1,3 @@
 #include "Generated.xcconfig"
+// Gitignored: MAPS_API_KEY for the Google Maps iOS SDK (prila-ios key)
+#include? "Secrets.xcconfig"

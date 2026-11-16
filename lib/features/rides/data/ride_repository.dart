@@ -42,6 +42,7 @@ class RideRepository {
   Future<Map<String, dynamic>> book({
     required String quoteId,
     required String idempotencyKey,
+    String? payAt,
   }) async {
     try {
       final res = await _dio.post<Map<String, dynamic>>(
@@ -50,6 +51,7 @@ class RideRepository {
           'quoteId': quoteId,
           'idempotencyKey': idempotencyKey,
           'paymentMethod': 'cash',
+          'payAt': ?payAt, // parcels only: 'pickup' | 'drop'
         },
       );
       return res.data ?? {};

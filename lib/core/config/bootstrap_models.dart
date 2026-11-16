@@ -18,6 +18,10 @@ class BootstrapConfig {
     this.promoTitle,
     this.promoBody,
     this.promoImageUrl,
+    this.searchMinChars = 3,
+    this.searchDebounceMs = 400,
+    this.inServiceArea,
+    this.serviceAreaMessage,
   });
 
   final int version;
@@ -38,6 +42,14 @@ class BootstrapConfig {
   final String? promoTitle;
   final String? promoBody;
   final String? promoImageUrl;
+
+  /// Server-driven search tuning (maps config) — never hardcode business numbers.
+  final int searchMinChars;
+  final int searchDebounceMs;
+
+  /// null = unknown (no location sent / enforcement off). Display hint only; the server enforces.
+  final bool? inServiceArea;
+  final String? serviceAreaMessage;
 
   factory BootstrapConfig.safeDefaults() => const BootstrapConfig(
         version: 0,
@@ -76,6 +88,8 @@ class BootstrapConfig {
     final support = (json['support'] as Map?)?.cast<String, dynamic>() ?? {};
     final promo = (json['promo'] as Map?)?.cast<String, dynamic>() ?? {};
     final sosRaw = support['sosNumbers'] ?? support['sos'];
+    final maps = (json['maps'] as Map?)?.cast<String, dynamic>() ?? {};
+    final area = (json['serviceArea'] as Map?)?.cast<String, dynamic>();
     return BootstrapConfig(
       version: (json['version'] as num?)?.toInt() ?? 0,
       maintenanceEnabled: maintenance['enabled'] == true,
@@ -98,6 +112,10 @@ class BootstrapConfig {
       promoTitle: promo['title'] as String?,
       promoBody: promo['body'] as String? ?? promo['cta'] as String? ?? promo['subtitle'] as String?,
       promoImageUrl: promo['imageUrl'] as String?,
+      searchMinChars: ((maps['autocompleteMinChars'] as num?)?.toInt() ?? 3).clamp(1, 10),
+      searchDebounceMs: ((maps['autocompleteDebounceMs'] as num?)?.toInt() ?? 400).clamp(150, 2000),
+      inServiceArea: area == null || area['enforced'] != true ? null : area['inService'] == true,
+      serviceAreaMessage: area?['message'] as String?,
     );
   }
 
@@ -118,6 +136,7 @@ class BootstrapConfig {
         },
         'matchingHints': {'acceptTimeoutSec': acceptTimeoutSec},
         'support': {'phone': supportPhone},
+        'maps': {'autocompleteMinChars': searchMinChars, 'autocompleteDebounceMs': searchDebounceMs},
       };
 }
 

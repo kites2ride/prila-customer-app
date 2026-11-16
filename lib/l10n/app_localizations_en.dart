@@ -246,4 +246,193 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sosSent => 'Help alert sent';
+
+  @override
+  String get notHereYetTitle => 'We\'re not here yet';
+
+  @override
+  String get notHereYetAction => 'Try another location';
+
+  @override
+  String get whereTo => 'Where to?';
+
+  @override
+  String get searchPickupHint => 'Pickup location';
+
+  @override
+  String get searchDropHint => 'Where are you going?';
+
+  @override
+  String get currentLocation => 'Current location';
+
+  @override
+  String get useCurrentLocation => 'Use current location';
+
+  @override
+  String get setOnMap => 'Set location on map';
+
+  @override
+  String get savedHome => 'Home';
+
+  @override
+  String get savedWork => 'Work';
+
+  @override
+  String get saveAsHome => 'Save as Home';
+
+  @override
+  String get saveAsWork => 'Save as Work';
+
+  @override
+  String get savedPlaceDone => 'Saved';
+
+  @override
+  String get recentPlaces => 'Recent places';
+
+  @override
+  String get noPlacesFound =>
+      'No places found. Try another name or set it on the map.';
+
+  @override
+  String get searchUnavailable =>
+      'Search isn\'t working right now. You can set the place on the map.';
+
+  @override
+  String get noInternet => 'No internet connection';
+
+  @override
+  String get locationOffTitle => 'Your phone\'s location is off';
+
+  @override
+  String get turnOnLocation => 'Turn on';
+
+  @override
+  String get allowLocation => 'Allow';
+
+  @override
+  String get openSettings => 'Settings';
+
+  @override
+  String get locationNeeded =>
+      'Allow location so we can pick you up from where you are.';
+
+  @override
+  String get swapPlaces => 'Swap pickup and drop';
+
+  @override
+  String get poweredByGoogle => 'Powered by Google';
+
+  @override
+  String get setPickupTitle => 'Set your pickup point';
+
+  @override
+  String get setDropTitle => 'Set your drop point';
+
+  @override
+  String get confirmPickup => 'Confirm pickup';
+
+  @override
+  String get confirmDrop => 'Confirm drop';
+
+  @override
+  String get pinnedLocation => 'Pinned location';
+
+  @override
+  String get findingAddress => 'Finding address…';
+
+  @override
+  String get addressUnavailable =>
+      'Couldn\'t get the address. You can still confirm this spot.';
+
+  @override
+  String get myLocation => 'My location';
+
+  @override
+  String bookService(String service) {
+    return 'Book $service';
+  }
+
+  @override
+  String tripSummary(String km, String min) {
+    return '$km km · $min min';
+  }
+
+  @override
+  String get cash => 'Cash';
+
+  @override
+  String get apply => 'Apply';
+
+  @override
+  String get recenter => 'Show pilot';
+
+  @override
+  String pilotEtaMin(String min) {
+    return 'Arriving in $min min';
+  }
+
+  @override
+  String get mapLoadFailed =>
+      'The map couldn\'t load. Check your internet and try again.';
+
+  @override
+  String get pilotCancelledFinding =>
+      'Your pilot cancelled. Finding you another pilot…';
+
+  @override
+  String get yourPilot => 'Your pilot';
+
+  @override
+  String get whoPays => 'Who pays?';
+
+  @override
+  String get payAtPickup => 'Pay at pickup';
+
+  @override
+  String get payAtPickupHint => 'Sender pays the pilot at pickup';
+
+  @override
+  String get payAtDrop => 'Pay at drop';
+
+  @override
+  String get payAtDropHint => 'Receiver pays the pilot at drop';
+
+  @override
+  String payAtPickupLine(String amount) {
+    return 'Pay $amount to the pilot at pickup';
+  }
+
+  @override
+  String payAtDropLine(String amount) {
+    return 'Receiver pays $amount to the pilot at drop';
+  }
+
+  @override
+  String get vehicleBike => 'Bike';
+
+  @override
+  String get vehicleAuto => 'Auto';
+
+  @override
+  String get vehicleParcel => 'Parcel';
+
+  @override
+  String get vehicleLogistics => 'Logistics';
+
+  @override
+  String get fareNight => 'Night fare';
+
+  @override
+  String get fareRushHour => 'Rush hour';
+
+  @override
+  String get fareHighDemand => 'High demand';
+
+  @override
+  String get fareTraffic => 'Heavy traffic';
+
+  @override
+  String fareTimesNormal(String x) {
+    return '$x× the normal fare';
+  }
 }

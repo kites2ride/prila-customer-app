@@ -5,6 +5,7 @@ import 'package:customer/core/errors/app_failure.dart';
 import 'package:customer/core/theme/prila_theme.dart';
 import 'package:customer/core/widgets/fare_chip.dart';
 import 'package:customer/core/widgets/location_pair_tile.dart';
+import 'package:customer/core/widgets/pilot_info_card.dart';
 import 'package:customer/core/widgets/prila_card.dart';
 import 'package:customer/core/widgets/prila_gradient_button.dart';
 import 'package:customer/core/widgets/radar_search_animation.dart';
@@ -12,6 +13,8 @@ import 'package:customer/core/widgets/status_checklist.dart';
 import 'package:customer/features/push/data/devices_repository.dart';
 import 'package:customer/features/rides/application/ride_session.dart';
 import 'package:customer/features/rides/data/ride_repository.dart';
+import 'package:customer/features/rides/domain/ride_view.dart';
+import 'package:customer/features/rides/presentation/ride_map.dart';
 import 'package:customer/l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
@@ -92,6 +95,10 @@ class _RideTrackingPageState extends ConsumerState<RideTrackingPage> {
     }.contains(status);
     final canCancel = !terminal && status != 'in_progress';
     final isSearching = status == 'searching' || status == 'requested';
+    final reassigned = isReassignedSearch(ride);
+    final pilot = (ride?['pilot'] as Map?)?.cast<String, dynamic>();
+    final payAt = ride?['serviceType'] == 'parcel' ? PayAt.fromJson(ride?['payAt']) : null;
+    final fareText = '₹${(((fare?['totalPaise'] as num?) ?? 0) / 100).round()}';
 
     return Scaffold(
       appBar: AppBar(
@@ -124,14 +131,45 @@ class _RideTrackingPageState extends ConsumerState<RideTrackingPage> {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text(e.toString())),
         data: (_) {
-          return ListView(
+          final etaSec = (ride?['pickupEtaSec'] as num?)?.toInt();
+          final showEta = etaSec != null && (status == 'pilot_assigned' || status == 'pilot_arriving');
+          final list = ListView(
             padding: const EdgeInsets.all(20),
             children: [
               PrilaCard(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if (reassigned)
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: colors.primary.withValues(alpha: 0.10),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.autorenew_rounded, color: colors.primary),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Text(
+                                l10n.pilotCancelledFinding,
+                                style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     Text(_statusLabel(l10n, status), style: Theme.of(context).textTheme.titleLarge),
+                    if (showEta)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          l10n.pilotEtaMin('${(etaSec / 60).ceil().clamp(1, 99)}'),
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(color: colors.primary, fontWeight: FontWeight.w700),
+                        ),
+                      ),
                     if (isSearching) ...[
                       const SizedBox(height: 16),
                       Center(child: RadarSearchAnimation(size: 140)),
@@ -166,12 +204,32 @@ class _RideTrackingPageState extends ConsumerState<RideTrackingPage> {
                         label: l10n.fare,
                         amountPaise: (fare['totalPaise'] as num?)?.toInt() ?? 0,
                       ),
+                      if (payAt != null)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 6),
+                          child: Row(
+                            children: [
+                              Icon(Icons.payments_rounded, size: 18, color: colors.pickup),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(
+                                  payAt == PayAt.pickup ? l10n.payAtPickupLine(fareText) : l10n.payAtDropLine(fareText),
+                                  style: const TextStyle(fontWeight: FontWeight.w600),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                     ],
                     if (ride?['shakti'] == true)
                       Chip(label: Text(l10n.prilaShakti), avatar: const Icon(Icons.shield_outlined, size: 16)),
                   ],
                 ),
               ),
+              if (pilot != null && !isSearching && !terminal) ...[
+                const SizedBox(height: 16),
+                PilotInfoCard(pilot: pilot),
+              ],
               const SizedBox(height: 16),
               PrilaCard(
                 child: LocationPairTile(
@@ -200,6 +258,16 @@ class _RideTrackingPageState extends ConsumerState<RideTrackingPage> {
                   label: l10n.backHome,
                   onPressed: () => context.go('/home'),
                 ),
+            ],
+          );
+          if (ride == null) return list;
+          return Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.42,
+                child: RideMap(ride: ride),
+              ),
+              Expanded(child: list),
             ],
           );
         },

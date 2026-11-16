@@ -20,7 +20,8 @@ class BootstrapController extends StateNotifier<AsyncValue<BootstrapConfig>> {
 
   final Ref _ref;
 
-  Future<void> refresh() async {
+  /// [lat]/[lng] (optional) lets the server answer `serviceArea` for where the rider is.
+  Future<void> refresh({double? lat, double? lng}) async {
     final store = _ref.read(secureStoreProvider);
     final dio = _ref.read(dioProvider);
     try {
@@ -33,6 +34,7 @@ class BootstrapController extends StateNotifier<AsyncValue<BootstrapConfig>> {
           'app': AppEnv.appKind,
           'platform': platform,
           'build': build,
+          if (lat != null && lng != null) ...{'lat': lat, 'lng': lng},
         },
       );
       final cfg = BootstrapConfig.fromJson(res.data ?? {});

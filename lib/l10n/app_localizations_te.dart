@@ -246,4 +246,193 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get sosSent => 'సహాయ హెచ్చరిక పంపబడింది';
+
+  @override
+  String get notHereYetTitle => 'మేము ఇంకా ఇక్కడ లేము';
+
+  @override
+  String get notHereYetAction => 'వేరే స్థలం ప్రయత్నించండి';
+
+  @override
+  String get whereTo => 'ఎక్కడికి వెళ్లాలి?';
+
+  @override
+  String get searchPickupHint => 'పికప్ స్థలం';
+
+  @override
+  String get searchDropHint => 'మీరు ఎక్కడికి వెళ్తున్నారు?';
+
+  @override
+  String get currentLocation => 'ప్రస్తుత స్థలం';
+
+  @override
+  String get useCurrentLocation => 'ప్రస్తుత స్థలాన్ని వాడండి';
+
+  @override
+  String get setOnMap => 'మ్యాప్‌లో స్థలం ఎంచుకోండి';
+
+  @override
+  String get savedHome => 'ఇల్లు';
+
+  @override
+  String get savedWork => 'ఆఫీసు';
+
+  @override
+  String get saveAsHome => 'ఇల్లుగా సేవ్ చేయండి';
+
+  @override
+  String get saveAsWork => 'ఆఫీసుగా సేవ్ చేయండి';
+
+  @override
+  String get savedPlaceDone => 'సేవ్ అయింది';
+
+  @override
+  String get recentPlaces => 'ఇటీవలి స్థలాలు';
+
+  @override
+  String get noPlacesFound =>
+      'స్థలాలు దొరకలేదు. వేరే పేరు ప్రయత్నించండి లేదా మ్యాప్‌లో ఎంచుకోండి.';
+
+  @override
+  String get searchUnavailable =>
+      'ఇప్పుడు వెతకడం పని చేయడం లేదు. మ్యాప్‌లో స్థలం ఎంచుకోవచ్చు.';
+
+  @override
+  String get noInternet => 'ఇంటర్నెట్ కనెక్షన్ లేదు';
+
+  @override
+  String get locationOffTitle => 'మీ ఫోన్ లొకేషన్ ఆఫ్‌లో ఉంది';
+
+  @override
+  String get turnOnLocation => 'ఆన్ చేయండి';
+
+  @override
+  String get allowLocation => 'అనుమతించండి';
+
+  @override
+  String get openSettings => 'సెట్టింగ్స్';
+
+  @override
+  String get locationNeeded =>
+      'మీరు ఉన్న చోటు నుండే పికప్ చేయడానికి లొకేషన్ అనుమతించండి.';
+
+  @override
+  String get swapPlaces => 'పికప్, డ్రాప్ మార్చండి';
+
+  @override
+  String get poweredByGoogle => 'Powered by Google';
+
+  @override
+  String get setPickupTitle => 'మీ పికప్ స్థలం ఎంచుకోండి';
+
+  @override
+  String get setDropTitle => 'మీ డ్రాప్ స్థలం ఎంచుకోండి';
+
+  @override
+  String get confirmPickup => 'పికప్ నిర్ధారించండి';
+
+  @override
+  String get confirmDrop => 'డ్రాప్ నిర్ధారించండి';
+
+  @override
+  String get pinnedLocation => 'ఎంచుకున్న స్థలం';
+
+  @override
+  String get findingAddress => 'చిరునామా వెతుకుతోంది…';
+
+  @override
+  String get addressUnavailable =>
+      'చిరునామా దొరకలేదు. అయినా ఈ స్థలాన్ని నిర్ధారించవచ్చు.';
+
+  @override
+  String get myLocation => 'నా స్థలం';
+
+  @override
+  String bookService(String service) {
+    return '$service బుక్ చేయండి';
+  }
+
+  @override
+  String tripSummary(String km, String min) {
+    return '$km కి.మీ · $min నిమి';
+  }
+
+  @override
+  String get cash => 'నగదు';
+
+  @override
+  String get apply => 'వర్తింపజేయండి';
+
+  @override
+  String get recenter => 'పైలట్‌ను చూపించు';
+
+  @override
+  String pilotEtaMin(String min) {
+    return '$min నిమిషాల్లో వస్తున్నారు';
+  }
+
+  @override
+  String get mapLoadFailed =>
+      'మ్యాప్ లోడ్ కాలేదు. ఇంటర్నెట్ చూసి మళ్లీ ప్రయత్నించండి.';
+
+  @override
+  String get pilotCancelledFinding =>
+      'మీ పైలట్ రద్దు చేశారు. మీకు మరో పైలట్‌ను వెతుకుతున్నాం…';
+
+  @override
+  String get yourPilot => 'మీ పైలట్';
+
+  @override
+  String get whoPays => 'ఎవరు చెల్లిస్తారు?';
+
+  @override
+  String get payAtPickup => 'పికప్ వద్ద చెల్లింపు';
+
+  @override
+  String get payAtPickupHint => 'పంపేవారు పికప్ వద్ద పైలట్‌కు చెల్లిస్తారు';
+
+  @override
+  String get payAtDrop => 'డ్రాప్ వద్ద చెల్లింపు';
+
+  @override
+  String get payAtDropHint => 'అందుకునేవారు డ్రాప్ వద్ద పైలట్‌కు చెల్లిస్తారు';
+
+  @override
+  String payAtPickupLine(String amount) {
+    return 'పికప్ వద్ద పైలట్‌కు $amount చెల్లించండి';
+  }
+
+  @override
+  String payAtDropLine(String amount) {
+    return 'అందుకునేవారు డ్రాప్ వద్ద పైలట్‌కు $amount చెల్లిస్తారు';
+  }
+
+  @override
+  String get vehicleBike => 'బైక్';
+
+  @override
+  String get vehicleAuto => 'ఆటో';
+
+  @override
+  String get vehicleParcel => 'పార్సెల్';
+
+  @override
+  String get vehicleLogistics => 'లాజిస్టిక్స్';
+
+  @override
+  String get fareNight => 'రాత్రి ఛార్జీ';
+
+  @override
+  String get fareRushHour => 'రద్దీ సమయం';
+
+  @override
+  String get fareHighDemand => 'ఎక్కువ డిమాండ్';
+
+  @override
+  String get fareTraffic => 'భారీ ట్రాఫిక్';
+
+  @override
+  String fareTimesNormal(String x) {
+    return 'సాధారణ ఛార్జీకి $x రెట్లు';
+  }
 }

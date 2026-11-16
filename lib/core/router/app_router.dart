@@ -12,7 +12,10 @@ import 'package:customer/features/gates/presentation/update_page.dart';
 import 'package:customer/features/home/presentation/home_shell.dart';
 import 'package:customer/features/notifications/presentation/notifications_page.dart';
 import 'package:customer/features/onboarding/presentation/permissions_page.dart';
-import 'package:customer/features/rides/presentation/book_ride_page.dart';
+import 'package:customer/features/booking/application/booking_draft.dart';
+import 'package:customer/features/booking/presentation/confirm_ride_page.dart';
+import 'package:customer/features/booking/presentation/pin_picker_page.dart';
+import 'package:customer/features/booking/presentation/search_place_page.dart';
 import 'package:customer/features/rides/presentation/rate_ride_page.dart';
 import 'package:customer/features/rides/presentation/ride_tracking_page.dart';
 import 'package:customer/features/splash/presentation/splash_page.dart';
@@ -41,13 +44,20 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(path: '/home', builder: (_, __) => const HomeShell()),
       GoRoute(path: '/notifications', builder: (_, __) => const NotificationsPage()),
+      // Booking: search (set_route) → optional map pin → confirm (quote_ready).
       GoRoute(
         path: '/book',
-        builder: (_, state) => BookRidePage(
-          serviceType: state.uri.queryParameters['type'] ?? 'bike',
-          serviceName: state.uri.queryParameters['name'] ?? 'Bike Ride',
+        builder: (_, state) => SearchPlacePage(
+          focus: state.uri.queryParameters['focus'] == 'pickup' ? TripEnd.pickup : TripEnd.drop,
         ),
       ),
+      GoRoute(
+        path: '/book/map',
+        builder: (_, state) => PinPickerPage(
+          end: state.uri.queryParameters['end'] == 'pickup' ? TripEnd.pickup : TripEnd.drop,
+        ),
+      ),
+      GoRoute(path: '/book/confirm', builder: (_, _) => const ConfirmRidePage()),
       GoRoute(
         path: '/ride/:id',
         builder: (_, state) => RideTrackingPage(rideId: state.pathParameters['id']!),

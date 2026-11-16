@@ -559,6 +559,348 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Help alert sent'**
   String get sosSent;
+
+  /// Title when pickup/drop is outside the service area. The explanation text comes from the server.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'re not here yet'**
+  String get notHereYetTitle;
+
+  /// No description provided for @notHereYetAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Try another location'**
+  String get notHereYetAction;
+
+  /// No description provided for @whereTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Where to?'**
+  String get whereTo;
+
+  /// No description provided for @searchPickupHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Pickup location'**
+  String get searchPickupHint;
+
+  /// No description provided for @searchDropHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Where are you going?'**
+  String get searchDropHint;
+
+  /// No description provided for @currentLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Current location'**
+  String get currentLocation;
+
+  /// No description provided for @useCurrentLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use current location'**
+  String get useCurrentLocation;
+
+  /// No description provided for @setOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Set location on map'**
+  String get setOnMap;
+
+  /// No description provided for @savedHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get savedHome;
+
+  /// No description provided for @savedWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Work'**
+  String get savedWork;
+
+  /// No description provided for @saveAsHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Save as Home'**
+  String get saveAsHome;
+
+  /// No description provided for @saveAsWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Save as Work'**
+  String get saveAsWork;
+
+  /// No description provided for @savedPlaceDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get savedPlaceDone;
+
+  /// No description provided for @recentPlaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent places'**
+  String get recentPlaces;
+
+  /// No description provided for @noPlacesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No places found. Try another name or set it on the map.'**
+  String get noPlacesFound;
+
+  /// No description provided for @searchUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Search isn\'t working right now. You can set the place on the map.'**
+  String get searchUnavailable;
+
+  /// No description provided for @noInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection'**
+  String get noInternet;
+
+  /// No description provided for @locationOffTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone\'s location is off'**
+  String get locationOffTitle;
+
+  /// No description provided for @turnOnLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on'**
+  String get turnOnLocation;
+
+  /// No description provided for @allowLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get allowLocation;
+
+  /// No description provided for @openSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get openSettings;
+
+  /// No description provided for @locationNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow location so we can pick you up from where you are.'**
+  String get locationNeeded;
+
+  /// No description provided for @swapPlaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap pickup and drop'**
+  String get swapPlaces;
+
+  /// No description provided for @poweredByGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Powered by Google'**
+  String get poweredByGoogle;
+
+  /// No description provided for @setPickupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your pickup point'**
+  String get setPickupTitle;
+
+  /// No description provided for @setDropTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your drop point'**
+  String get setDropTitle;
+
+  /// No description provided for @confirmPickup.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm pickup'**
+  String get confirmPickup;
+
+  /// No description provided for @confirmDrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm drop'**
+  String get confirmDrop;
+
+  /// No description provided for @pinnedLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Pinned location'**
+  String get pinnedLocation;
+
+  /// No description provided for @findingAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Finding address…'**
+  String get findingAddress;
+
+  /// No description provided for @addressUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t get the address. You can still confirm this spot.'**
+  String get addressUnavailable;
+
+  /// No description provided for @myLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'My location'**
+  String get myLocation;
+
+  /// No description provided for @bookService.
+  ///
+  /// In en, this message translates to:
+  /// **'Book {service}'**
+  String bookService(String service);
+
+  /// No description provided for @tripSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{km} km · {min} min'**
+  String tripSummary(String km, String min);
+
+  /// No description provided for @cash.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash'**
+  String get cash;
+
+  /// No description provided for @apply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get apply;
+
+  /// No description provided for @recenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Show pilot'**
+  String get recenter;
+
+  /// No description provided for @pilotEtaMin.
+  ///
+  /// In en, this message translates to:
+  /// **'Arriving in {min} min'**
+  String pilotEtaMin(String min);
+
+  /// No description provided for @mapLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The map couldn\'t load. Check your internet and try again.'**
+  String get mapLoadFailed;
+
+  /// No description provided for @pilotCancelledFinding.
+  ///
+  /// In en, this message translates to:
+  /// **'Your pilot cancelled. Finding you another pilot…'**
+  String get pilotCancelledFinding;
+
+  /// No description provided for @yourPilot.
+  ///
+  /// In en, this message translates to:
+  /// **'Your pilot'**
+  String get yourPilot;
+
+  /// No description provided for @whoPays.
+  ///
+  /// In en, this message translates to:
+  /// **'Who pays?'**
+  String get whoPays;
+
+  /// No description provided for @payAtPickup.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay at pickup'**
+  String get payAtPickup;
+
+  /// No description provided for @payAtPickupHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Sender pays the pilot at pickup'**
+  String get payAtPickupHint;
+
+  /// No description provided for @payAtDrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay at drop'**
+  String get payAtDrop;
+
+  /// No description provided for @payAtDropHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiver pays the pilot at drop'**
+  String get payAtDropHint;
+
+  /// No description provided for @payAtPickupLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay {amount} to the pilot at pickup'**
+  String payAtPickupLine(String amount);
+
+  /// No description provided for @payAtDropLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiver pays {amount} to the pilot at drop'**
+  String payAtDropLine(String amount);
+
+  /// No description provided for @vehicleBike.
+  ///
+  /// In en, this message translates to:
+  /// **'Bike'**
+  String get vehicleBike;
+
+  /// No description provided for @vehicleAuto.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto'**
+  String get vehicleAuto;
+
+  /// No description provided for @vehicleParcel.
+  ///
+  /// In en, this message translates to:
+  /// **'Parcel'**
+  String get vehicleParcel;
+
+  /// No description provided for @vehicleLogistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Logistics'**
+  String get vehicleLogistics;
+
+  /// No description provided for @fareNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Night fare'**
+  String get fareNight;
+
+  /// No description provided for @fareRushHour.
+  ///
+  /// In en, this message translates to:
+  /// **'Rush hour'**
+  String get fareRushHour;
+
+  /// No description provided for @fareHighDemand.
+  ///
+  /// In en, this message translates to:
+  /// **'High demand'**
+  String get fareHighDemand;
+
+  /// No description provided for @fareTraffic.
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy traffic'**
+  String get fareTraffic;
+
+  /// No description provided for @fareTimesNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'{x}× the normal fare'**
+  String fareTimesNormal(String x);
 }
 
 class _AppLocalizationsDelegate

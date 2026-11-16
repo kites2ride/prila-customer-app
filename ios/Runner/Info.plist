@@ -16,6 +16,8 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>Prila</string>
+	<key>GMSApiKey</key>
+	<string>$(MAPS_API_KEY)</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Prila uses your location to find nearby pilots and show pickup points.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

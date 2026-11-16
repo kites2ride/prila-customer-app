@@ -45,6 +45,7 @@ flutter:
   assets:
     - env/
     - assets/brand/
+    - assets/map_styles/
   fonts:
     - family: Poppins
       fonts:
